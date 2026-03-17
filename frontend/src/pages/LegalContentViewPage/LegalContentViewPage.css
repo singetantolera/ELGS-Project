@@ -1,0 +1,112 @@
+.legal-content-page {
+  min-height: calc(100vh - 70px);
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 2rem 0;
+}
+
+/* Loading State */
+.legal-content-loading {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  padding: 2rem;
+}
+
+.legal-content-loading p {
+  margin-top: 1rem;
+  color: #64748b;
+  font-size: 1rem;
+}
+
+/* Error State */
+.legal-content-error {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  padding: 2rem;
+  text-align: center;
+}
+
+.legal-content-error .error-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.legal-content-error h3 {
+  color: #1e293b;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.legal-content-error p {
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+.legal-content-error .retry-btn,
+.legal-content-error .back-btn {
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.legal-content-error .retry-btn {
+  background: var(--primary-color);
+  color: white;
+}
+
+.legal-content-error .retry-btn:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.3);
+}
+
+.legal-content-error .back-btn {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.legal-content-error .back-btn:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .legal-content-page {
+    padding: 1rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .legal-content-error .error-icon {
+    font-size: 2.5rem;
+  }
+
+  .legal-content-error h3 {
+    font-size: 1.25rem;
+  }
+
+  .legal-content-error .retry-btn,
+  .legal-content-error .back-btn {
+    width: 100%;
+    margin: 0.25rem 0;
+  }
+}

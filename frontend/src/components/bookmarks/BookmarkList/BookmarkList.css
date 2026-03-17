@@ -1,0 +1,481 @@
+.bookmarks-container {
+  width: 100%;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bookmarks-loading {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.bookmarks-loading p {
+  margin-top: 1rem;
+  color: #64748b;
+}
+
+.bookmarks-empty {
+  text-align: center;
+  padding: 4rem 0;
+  background: var(--bg-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  animation: slideUp 0.5s ease;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.bookmarks-empty h3 {
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.bookmarks-empty p {
+  color: #64748b;
+  margin-bottom: 2rem;
+}
+
+.login-btn,
+.browse-btn {
+  padding: 0.75rem 2rem;
+  background: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+}
+
+.login-btn:hover,
+.browse-btn:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.3);
+}
+
+.bookmarks-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  background: #f8fafc;
+  border-radius: var(--border-radius);
+  flex-wrap: wrap;
+  gap: 1rem;
+  animation: slideUp 0.5s ease;
+}
+
+.select-all {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.3rem 0.8rem;
+  background: white;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.select-all:hover {
+  background: #f1f5f9;
+}
+
+.select-all input[type="checkbox"] {
+  width: 1.125rem;
+  height: 1.125rem;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+.selected-count {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 0.25rem;
+  background: #f1f5f9;
+  padding: 0.25rem;
+  border-radius: var(--border-radius);
+}
+
+.view-btn {
+  padding: 0.5rem;
+  border: none;
+  background: transparent;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.view-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.view-btn.active {
+  background: var(--bg-white);
+  box-shadow: var(--shadow-sm);
+  color: var(--primary-color);
+}
+
+.export-btn,
+.remove-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.export-btn {
+  background: var(--primary-color);
+  color: var(--text-light);
+}
+
+.export-btn:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+}
+
+.remove-btn {
+  background: #ef4444;
+  color: var(--text-light);
+}
+
+.remove-btn:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+/* Results Info */
+.results-info {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background: #f8fafc;
+  border-radius: var(--border-radius);
+  font-size: 0.95rem;
+  color: #64748b;
+}
+
+.results-count strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.bookmarks-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.bookmarks-grid.grid {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.bookmarks-grid.list {
+  grid-template-columns: 1fr;
+}
+
+.bookmark-card {
+  position: relative;
+  background: var(--bg-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: flex;
+  animation: slideUp 0.5s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.bookmark-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.bookmark-card.selected {
+  border-color: var(--primary-color);
+  background: #f0f9ff;
+}
+
+.bookmark-checkbox {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+}
+
+.bookmark-checkbox input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+.bookmark-content {
+  flex: 1;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+
+.bookmark-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bookmark-category {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.bookmark-category[data-category="Criminal Law"] {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.bookmark-category[data-category="Family Law"] {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.bookmark-category[data-category="Labor Law"] {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.bookmark-date {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  background: #f1f5f9;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+}
+
+.bookmark-title {
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+  padding-right: 2rem;
+  line-height: 1.4;
+}
+
+.bookmark-excerpt {
+  color: #64748b;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Bookmark Metadata */
+.bookmark-metadata {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.meta-icon {
+  font-size: 0.8rem;
+}
+
+.bookmark-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.remove-single {
+  padding: 0.25rem 0.75rem;
+  background: #fee2e2;
+  color: #ef4444;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.875rem;
+}
+
+.remove-single:hover {
+  background: #ef4444;
+  color: var(--text-light);
+  transform: translateY(-2px);
+}
+
+.read-more {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.read-more:hover {
+  color: #1e40af;
+  transform: translateX(5px);
+}
+
+/* Load More Trigger */
+.load-more-trigger {
+  text-align: center;
+  padding: 2rem;
+  color: #64748b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bookmarks-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .select-all {
+    width: 100%;
+  }
+
+  .toolbar-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .view-toggle {
+    flex: 1;
+  }
+
+  .export-btn,
+  .remove-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .bookmarks-grid.grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bookmark-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bookmark-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .remove-single,
+  .read-more {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .toolbar-actions {
+    flex-direction: column;
+  }
+
+  .view-toggle {
+    width: 100%;
+  }
+
+  .export-btn,
+  .remove-btn {
+    width: 100%;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .bookmark-card {
+    background: #1e293b;
+  }
+
+  .bookmark-title {
+    color: #f1f5f9;
+  }
+
+  .bookmark-excerpt {
+    color: #cbd5e1;
+  }
+
+  .bookmark-date {
+    background: #334155;
+    color: #94a3b8;
+  }
+
+  .select-all {
+    background: #334155;
+    color: #f1f5f9;
+  }
+
+  .select-all:hover {
+    background: #475569;
+  }
+
+  .results-info {
+    background: #334155;
+    color: #cbd5e1;
+  }
+
+  .results-count strong {
+    color: #f1f5f9;
+  }
+
+  .bookmark-metadata {
+    color: #94a3b8;
+  }
+
+  .load-more-trigger {
+    color: #94a3b8;
+  }
+}

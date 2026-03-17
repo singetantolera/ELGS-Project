@@ -1,0 +1,344 @@
+.language-selector-wrapper {
+  position: relative;
+  display: inline-block;
+  z-index: 1000;
+}
+
+.language-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  backdrop-filter: blur(5px);
+  min-width: 180px;
+}
+
+.language-trigger:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.language-trigger.active {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: var(--yellow);
+  box-shadow: 0 4px 15px rgba(252, 221, 9, 0.2);
+}
+
+.trigger-icon {
+  font-size: 1.6rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  color: #E91E63;
+}
+
+.trigger-text {
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.trigger-current {
+  margin-left: auto;
+  font-weight: 900;
+  background: rgb(241 25 211 / 95%);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.trigger-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+  opacity: 0.8;
+}
+
+.trigger-arrow.open {
+  transform: rotate(180deg);
+}
+
+.language-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 260px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem;
+  z-index: 1000;
+  animation: dropdownFade 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Recent Section */
+.recent-section {
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.section-label {
+  color: #64748b;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.recent-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.recent-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.7rem;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+}
+
+.recent-chip:hover {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  transform: translateY(-2px);
+  border-color: transparent;
+}
+
+.recent-chip.active {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border-color: transparent;
+}
+
+.chip-flag {
+  font-size: 1rem;
+}
+
+.chip-name {
+  font-weight: 500;
+}
+
+/* Language List */
+.language-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: none;
+  background: transparent;
+  border-radius: 12px;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  position: relative;
+  margin: 2px 0;
+}
+
+.language-option:hover {
+  background: linear-gradient(135deg, rgba(26, 75, 140, 0.08), rgba(196, 154, 43, 0.08));
+  transform: translateX(5px);
+}
+
+.language-option.active {
+  background: linear-gradient(135deg, rgba(26, 75, 140, 0.12), rgba(196, 154, 43, 0.12));
+  border-left: 3px solid var(--primary-color);
+}
+
+.option-flag {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  min-width: 32px;
+  text-align: center;
+}
+
+.option-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.option-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+.option-native {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.option-check {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+  animation: checkPop 0.3s ease;
+}
+
+@keyframes checkPop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .language-trigger {
+    padding: 0.5rem 1rem;
+    min-width: auto;
+  }
+
+  .trigger-text {
+    display: none;
+  }
+
+  .trigger-current {
+    margin-left: 0;
+  }
+
+  .language-dropdown {
+    right: -50px;
+    min-width: 220px;
+  }
+
+  .language-option {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .option-flag {
+    font-size: 1.2rem;
+    min-width: 28px;
+  }
+
+  .option-name {
+    font-size: 0.85rem;
+  }
+
+  .option-native {
+    font-size: 0.7rem;
+  }
+
+  .recent-list {
+    justify-content: center;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .language-trigger {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .trigger-icon {
+    font-size: 1rem;
+  }
+
+  .trigger-current {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.4rem;
+  }
+
+  .language-dropdown {
+    right: -20px;
+    min-width: 200px;
+    padding: 0.5rem;
+  }
+
+  .recent-chip {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .chip-flag {
+    font-size: 0.9rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .language-dropdown {
+    background: rgba(30, 41, 59, 0.98);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .language-option {
+    color: var(--text-light);
+  }
+
+  .option-name {
+    color: var(--text-light);
+  }
+
+  .option-native {
+    color: #94a3b8;
+  }
+
+  .language-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .language-option.active {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .recent-section {
+    border-bottom-color: #334155;
+  }
+
+  .section-label {
+    color: #94a3b8;
+  }
+
+  .recent-chip {
+    background: #334155;
+    border-color: #475569;
+    color: #f1f5f9;
+  }
+
+  .recent-chip:hover {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  }
+}

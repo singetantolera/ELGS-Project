@@ -1,0 +1,229 @@
+.privacy-page {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 3rem 1rem;
+}
+
+.privacy-page .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 40px 40px 20px 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+}
+
+/* Header Section */
+.privacy-page h1 {
+  background: linear-gradient(135deg, #285F6F 0%, #1a3f4a 100%);
+  color: #ffffff;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 3rem 3rem 2rem 3rem;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  border-bottom: 4px solid #B22222;
+}
+
+/* Last Updated Badge */
+.last-updated {
+  background-color: #000000;
+  color: #ffffff;
+  display: inline-block;
+  margin: -1.5rem 3rem 2rem 3rem;
+  padding: 0.6rem 1.8rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+/* Content Sections */
+.policy-section {
+  padding: 0 3rem;
+  margin-bottom: 3rem;
+}
+
+.policy-section:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 3rem;
+}
+
+/* Section Headers */
+.policy-section h2 {
+  color: #285F6F;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid #B22222;
+  display: inline-block;
+  letter-spacing: -0.3px;
+  position: relative;
+}
+
+.policy-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 50%;
+  height: 3px;
+  background-color: #285F6F;
+}
+
+/* Paragraph Text */
+.policy-section p {
+  color: #000000;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+/* Lists */
+.policy-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.policy-section li {
+  color: #000000;
+  padding: 1rem 1.2rem;
+  background-color: #f8f8f8;
+  border-left: 4px solid #B22222;
+  border-radius: 0 12px 12px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.policy-section li:hover {
+  transform: translateX(5px);
+  background-color: #fff0f0;
+  border-left-color: #285F6F;
+  box-shadow: 0 4px 12px rgba(178, 34, 34, 0.15);
+}
+
+/* Special styling for contact section */
+.policy-section:last-of-type p {
+  background-color: #f0f7f9;
+  padding: 1.2rem;
+  border-radius: 12px;
+  border: 1px solid #d0e0e5;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.policy-section:last-of-type p:last-of-type {
+  background-color: #285F6F;
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.policy-section:last-of-type p:last-of-type:hover {
+  background-color: #B22222;
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .privacy-page {
+    padding: 1rem;
+  }
+
+  .privacy-page .container {
+    border-radius: 30px;
+  }
+
+  .privacy-page h1 {
+    font-size: 2.2rem;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+  }
+
+  .last-updated {
+    margin: -1rem 1.5rem 1.5rem 1.5rem;
+    font-size: 0.85rem;
+    padding: 0.5rem 1.2rem;
+  }
+
+  .policy-section {
+    padding: 0 1.5rem;
+  }
+
+  .policy-section ul {
+    grid-template-columns: 1fr;
+  }
+
+  .policy-section:last-of-type p {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .privacy-page h1 {
+    font-size: 1.8rem;
+    padding: 1.5rem 1rem 1rem 1rem;
+  }
+
+  .last-updated {
+    margin: -0.8rem 1rem 1.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .policy-section {
+    padding: 0 1rem;
+  }
+
+  .policy-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .policy-section p {
+    font-size: 1rem;
+  }
+
+  .policy-section li {
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .privacy-page {
+    background: white;
+    padding: 0;
+  }
+
+  .privacy-page .container {
+    box-shadow: none;
+  }
+
+  .privacy-page h1 {
+    background: none;
+    color: #000;
+    padding: 2rem 0;
+  }
+
+  .last-updated {
+    background: none;
+    color: #666;
+    border: 1px solid #ddd;
+  }
+}

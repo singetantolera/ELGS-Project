@@ -1,0 +1,462 @@
+.chatbot-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: calc(100vh - 70px);
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Loading State */
+.chatbot-page-loading {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.loading-spinner {
+  margin-bottom: 2rem;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #285F6F;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 1.2rem;
+  color: #285F6F;
+  margin-bottom: 2rem;
+}
+
+/* Slide-in Panel Layout */
+.chatbot-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.chat-main {
+  background: transparent;
+  animation: slideInMain 0.5s ease-out;
+}
+
+@keyframes slideInMain {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.chat-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: slideInPanel 0.5s ease-out 0.2s both;
+}
+
+@keyframes slideInPanel {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide-in Cards */
+.info-card,
+.faq-card,
+.topics-card,
+.disclaimer-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-left: 4px solid #285F6F;
+}
+
+/* Individual slide animations for each card */
+.info-card {
+  animation: slideInCard 0.4s ease-out;
+}
+
+.faq-card {
+  animation: slideInCard 0.4s ease-out 0.1s both;
+}
+
+.topics-card {
+  animation: slideInCard 0.4s ease-out 0.2s both;
+}
+
+.disclaimer-card {
+  animation: slideInCard 0.4s ease-out 0.3s both;
+  border-left-color: #b22222;
+}
+
+@keyframes slideInCard {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hover effects with slide */
+.info-card:hover,
+.faq-card:hover,
+.topics-card:hover {
+  transform: translateX(-5px);
+  box-shadow: 0 8px 25px rgba(40, 95, 111, 0.2);
+}
+
+.disclaimer-card:hover {
+  transform: translateX(-5px);
+  box-shadow: 0 8px 25px rgba(178, 34, 34, 0.15);
+}
+
+.info-card h3,
+.faq-card h3,
+.topics-card h3 {
+  color: #285F6F;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 0.5rem;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  color: #000000;
+  line-height: 1.8;
+}
+
+.info-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.info-list li:last-child {
+  border-bottom: none;
+}
+
+.info-list li::before {
+  content: "→";
+  color: #b22222;
+  font-weight: 800;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faq-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  transform: translateX(3px);
+  border-color: #285F6F;
+}
+
+.faq-question {
+  padding: 0.75rem;
+  background: #f8fafc;
+  cursor: pointer;
+  font-weight: 500;
+  color: #000000;
+  transition: all 0.3s ease;
+  list-style: none;
+  position: relative;
+  padding-right: 2rem;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::after {
+  content: '+';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #285F6F;
+  font-weight: 600;
+}
+
+details[open] .faq-question::after {
+  content: '−';
+}
+
+.faq-question:hover {
+  background: #f1f5f9;
+}
+
+.faq-answer {
+  padding: 0.75rem;
+  background: #ffffff;
+  color: #333333;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  border-top: 1px solid #e0e0e0;
+}
+
+.topics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.topic-btn {
+  padding: 0.75rem;
+  background: #f8fafc;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  color: #000000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.topic-btn:hover {
+  background: #285F6F;
+  color: #ffffff;
+  border-color: #285F6F;
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(40, 95, 111, 0.3);
+}
+
+.topic-btn:active {
+  transform: translateX(4px);
+}
+
+.disclaimer-card {
+  background: #fff3cd;
+  border-left: 4px solid #b22222;
+}
+
+.disclaimer-card p {
+  color: #000000;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+/* Slide-out animation for mobile menu */
+@media (max-width: 968px) {
+  .chatbot-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-sidebar {
+    order: -1;
+    max-height: 0;
+    overflow: hidden;
+    animation: slideDownPanel 0.5s ease-out forwards;
+  }
+
+  @keyframes slideDownPanel {
+    from {
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      max-height: 2000px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .info-card,
+  .faq-card,
+  .topics-card,
+  .disclaimer-card {
+    animation: slideInMobile 0.4s ease-out;
+  }
+
+  @keyframes slideInMobile {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .chatbot-page {
+    padding: 1rem;
+  }
+
+  .chatbot-layout {
+    gap: 1rem;
+  }
+  
+  .loading-text {
+    font-size: 1rem;
+  }
+  
+  .info-card,
+  .faq-card,
+  .topics-card,
+  .disclaimer-card {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .chatbot-page {
+    padding: 0.5rem;
+  }
+  
+  .info-card,
+  .faq-card,
+  .topics-card,
+  .disclaimer-card {
+    padding: 1rem;
+  }
+  
+  .topic-btn {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .topic-btn:hover {
+    transform: translateX(5px);
+  }
+}
+
+/* Slide animations for interactive elements */
+.topic-btn {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.faq-item {
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.info-card,
+.faq-card,
+.topics-card,
+.disclaimer-card {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.3s ease;
+}
+
+/* Entrance animations */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply entrance animations */
+.chat-main {
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+.chat-sidebar {
+  animation: slideInFromRight 0.5s ease-out 0.2s both;
+}
+
+.info-card {
+  animation: slideInFromBottom 0.4s ease-out;
+}
+
+.faq-card {
+  animation: slideInFromBottom 0.4s ease-out 0.1s both;
+}
+
+.topics-card {
+  animation: slideInFromBottom 0.4s ease-out 0.2s both;
+}
+
+.disclaimer-card {
+  animation: slideInFromBottom 0.4s ease-out 0.3s both;
+}
